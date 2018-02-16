@@ -1,6 +1,13 @@
 <app-navigation></app-navigation>
 <div class="container">
-  <app-network></app-network>
+  <!--<app-network></app-network>-->
+  <div class="btn-group" btnRadioGroup [(ngModel)]="radioModel">
+    <label class="btn btn-primary" btnRadio="Process" routerLink="process">Process</label>
+    <label class="btn btn-primary" btnRadio="Stakeholder" routerLink="stakeholder">Stakeholder</label>
+    <label class="btn btn-primary" btnRadio="Location">Location</label>
+  </div>
+  <!--<app-ganttchart></app-ganttchart>-->
+  <router-outlet></router-outlet>
 </div>
 
 

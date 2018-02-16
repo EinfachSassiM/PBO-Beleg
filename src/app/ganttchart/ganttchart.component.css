@@ -1,0 +1,7 @@
+.gantt-chart{
+  overflow-x: scroll;
+/*overflow-y: scroll;*/
+}
+button{
+  background-color: darkblue;
+}

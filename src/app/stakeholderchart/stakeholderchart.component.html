@@ -1,0 +1,36 @@
+<div *ngIf="showBar">
+  <chart id="sh_bar_chart" [type]="type" [data]="data" [options]="options"></chart>
+</div>
+<div *ngIf="current_stakeholder">
+<h3>Stakeholder: {{current_stakeholder.name}}</h3>
+  <span><b>Typ:</b> {{current_stakeholder.type}}</span>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">Prozesse ( {{current_processes.length}} ):</h4>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-sm-3">
+          <ul *ngFor="let proc of current_processes"
+              class="nav nav-pills nav-stacked"
+              (click)="selectProcess(proc)">
+            <li><a>{{proc.name}}</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9">
+          <div *ngIf="current_proc">
+            <h4>{{current_proc.name}}</h4>
+            <span class="desc">{{current_proc.description}}</span>
+            <div>
+              <b>Location: </b>{{getLocation(current_proc.location)}}<br>
+              <b>Zeitraum: </b>{{current_proc.start}} - {{current_proc["end (optional)"]}}<br>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

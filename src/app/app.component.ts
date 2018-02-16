@@ -7,6 +7,5 @@ import { ProcessServiceService } from './process-service.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
-
+  radioModel: string = 'Process';
 }

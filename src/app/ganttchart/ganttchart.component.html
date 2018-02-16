@@ -1,0 +1,10 @@
+<div class="gantt-chart">
+  <gantt *ngIf="gantt"
+         [tasks]="tasks"
+         [links]="links"
+         [config]="gantt_configuration"
+         (TaskAction)="taskAction($event)"
+         (TaskSelected)="taskSelected($event)"
+         (LinkAction)="linkAction($event)"
+         (LinkSelected)="linkSelected($event)"></gantt>
+</div>
