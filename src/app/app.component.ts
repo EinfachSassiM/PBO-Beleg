@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ProcessServiceService } from './process-service.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,10 @@ import { ProcessServiceService } from './process-service.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  radioModel: string = 'Process';
+  radioModel: string;
+
+  constructor(private location:Location){
+    this.radioModel = location.path().slice(1);
+  }
+
 }

@@ -13,15 +13,17 @@ import {FormsModule} from "@angular/forms";
 import { StakeholderchartComponent } from './stakeholderchart/stakeholderchart.component';
 import {Routes, RouterModule} from "@angular/router";
 import {ChartModule} from "angular2-chartjs";
+import { Ganttchart2Component } from './ganttchart2/ganttchart2.component';
 
 const appRoutes: Routes = [
-  { path: 'process', component: GanttchartComponent },
+  { path: 'process', component: Ganttchart2Component },
   { path: 'stakeholder', component: StakeholderchartComponent },
+  { path: 'location', component: NetworkComponent},
   { path: '',
     redirectTo: 'process',
     pathMatch: 'full'
   },
-  { path: '**', component: GanttchartComponent }
+  { path: '**', component: Ganttchart2Component }
 ];
 
 @NgModule({
@@ -30,7 +32,8 @@ const appRoutes: Routes = [
     NetworkComponent,
     NavigationComponent,
     GanttchartComponent,
-    StakeholderchartComponent
+    StakeholderchartComponent,
+    Ganttchart2Component
   ],
   imports: [
     RouterModule.forRoot(

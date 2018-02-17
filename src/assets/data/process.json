@@ -389,7 +389,7 @@
               "https://process.stadt.de/location/1"
             ],
             "start": "2013-09-27T11:11:00+01:00",
-            "end (optional)": "",
+            "end (optional)": "2014-09-30",
             "participation": "partial opened",
             "participants": [
               "https://process.stadt.de/stakeholder/3",
@@ -432,7 +432,7 @@
               "https://process.stadt.de/location/1"
             ],
             "start": "2014-06-24T11:11:00+01:00",
-            "end (optional)": "",
+            "end (optional)": "2014-07-10",
             "participation": "partial opened",
             "participants": [
               "https://process.stadt.de/stakeholder/3",
@@ -475,7 +475,7 @@
               "https://process.stadt.de/location/1"
             ],
             "start": "2017-03-15T11:11:00+01:00",
-            "end (optional)": "",
+            "end (optional)": "2017-05-26",
             "participation": "partial opened",
             "participants": [
               "https://process.stadt.de/stakeholder/3",
@@ -518,7 +518,7 @@
               "https://process.stadt.de/location/1"
             ],
             "start": "2014-01-11T11:11:00+01:00",
-            "end (optional)": "",
+            "end (optional)": "2014-03-11",
             "participation": "partial opened",
             "participants": [
               "https://process.stadt.de/stakeholder/1",
@@ -562,7 +562,7 @@
               "https://process.stadt.de/location/1"
             ],
             "start": "2013-04-01T11:11:00+01:00",
-            "end (optional)": "",
+            "end (optional)": "2013-10-01",
             "participation": "closed",
             "participants": [
               "https://process.stadt.de/stakeholder/2"
@@ -605,7 +605,7 @@
               "https://process.stadt.de/location/1"
             ],
             "start": "2013-04-30T11:11:00+01:00",
-            "end (optional)": "",
+            "end (optional)": "2015-01-01",
             "participation": "closed",
             "participants": [
               "https://process.stadt.de/stakeholder/2",
@@ -698,7 +698,7 @@
               "https://process.stadt.de/location/1"
             ],
             "start": "2013-06-26T11:11:00+01:00",
-            "end (optional)": "",
+            "end (optional)": "2013-08-14",
             "participation": "closed",
             "participants": [
               "https://process.stadt.de/stakeholder/3",
@@ -741,7 +741,7 @@
               "https://process.stadt.de/location/1"
             ],
             "start": "2013-09-16T11:11:00+01:00",
-            "end (optional)": "",
+            "end (optional)": "2013-11-23",
             "participation": "closed",
             "participants": [
               "https://process.stadt.de/stakeholder/2"
@@ -785,7 +785,7 @@
               "https://process.stadt.de/location/1"
             ],
             "start": "2013-08-29T11:11:00+01:00",
-            "end (optional)": "",
+            "end (optional)": "2013-12-06",
             "participation": "partial opened",
             "participants": [
               "https://process.stadt.de/stakeholder/2",
@@ -829,7 +829,7 @@
               "https://process.stadt.de/location/1"
             ],
             "start": "2013-08-31T11:11:00+01:00",
-            "end (optional)": "",
+            "end (optional)": "2014-02-08",
             "participation": "closed",
             "participants": [
               "https://process.stadt.de/stakeholder/3",
@@ -874,7 +874,7 @@
               "https://process.stadt.de/location/1"
             ],
             "start": "2013-09-24T11:11:00+01:00",
-            "end (optional)": "",
+            "end (optional)": "2013-11-19",
             "participation": "partial opened",
             "participants": [
               "https://process.stadt.de/stakeholder/1",
@@ -910,13 +910,13 @@
             },
             "parent": "https://process.stadt.de/process/1",
             "childs": [],
-            "name": "VerÖffentlichung im Stadtanzeiger - frühzeitige Beteiligung der Öffentlichkeit",
-            "description": "VerÖffentlichung im Stadtanzeiger - frühzeitige Beteiligung der Öffentlichkeit nach §13a Abs. 3 Nr. 2 BauGB",
+            "name": "Veröffentlichung im Stadtanzeiger - frühzeitige Beteiligung der Öffentlichkeit",
+            "description": "Veröffentlichung im Stadtanzeiger - frühzeitige Beteiligung der Öffentlichkeit nach §13a Abs. 3 Nr. 2 BauGB",
             "location": [
               "https://process.stadt.de/location/1"
             ],
             "start": "2013-10-09T11:11:00+01:00",
-            "end (optional)": "",
+            "end (optional)": "2014-03-09",
             "participation": "partial opened",
             "participants": [
               "https://process.stadt.de/stakeholder/2"
@@ -960,7 +960,7 @@
               "https://process.stadt.de/location/1"
             ],
             "start": "2014-05-13T11:11:00+01:00",
-            "end (optional)": "",
+            "end (optional)": "2014-07-16",
             "participation": "closed",
             "participants": [
               "https://process.stadt.de/stakeholder/3"
@@ -1127,7 +1127,7 @@
               "https://process.stadt.de/location/1"
             ],
             "start": "2014-10-28T11:11:00+01:00",
-            "end (optional)": "",
+            "end (optional)": "2014-12-10",
             "participation": "closed",
             "participants": [
               "https://process.stadt.de/stakeholder/4"
@@ -1211,7 +1211,7 @@
               "https://process.stadt.de/location/1"
             ],
             "start": "2015-01-08T11:11:00+01:00",
-            "end (optional)": "",
+            "end (optional)": "2015-02-19",
             "participation": "partial opened",
             "participants": [
               "https://process.stadt.de/stakeholder/2",
@@ -1255,7 +1255,7 @@
               "https://process.stadt.de/location/1"
             ],
             "start": "2015-01-27T11:11:00+01:00",
-            "end (optional)": "",
+            "end (optional)": "2015-03-17",
             "participation": "partial opened",
             "participants": [
               "https://process.stadt.de/stakeholder/1",
@@ -1297,7 +1297,7 @@
               "https://process.stadt.de/location/1"
             ],
             "start": "2015-01-28T11:11:00+01:00",
-            "end (optional)": "",
+            "end (optional)": "2015-02-27",
             "participation": "open",
             "participants": [
               "https://process.stadt.de/stakeholder/2"
@@ -1519,7 +1519,7 @@
               "https://process.stadt.de/location/1"
             ],
             "start": "2015-05-15T11:11:00+01:00",
-            "end (optional)": "",
+            "end (optional)": "2015-07-25",
             "participation": "closed",
             "participants": [
               "https://process.stadt.de/stakeholder/2",
@@ -1564,7 +1564,7 @@
               "https://process.stadt.de/location/1"
             ],
             "start": "2015-05-16T11:11:00+01:00",
-            "end (optional)": "",
+            "end (optional)": "2015-08-02",
             "participation": "closed",
             "participants": [
               "https://process.stadt.de/stakeholder/3",
@@ -1610,7 +1610,7 @@
               "https://process.stadt.de/location/1"
             ],
             "start": "2015-06-01T11:11:00+01:00",
-            "end (optional)": "",
+            "end (optional)": "2015-09-23",
             "participation": "closed",
             "participants": [
               "https://process.stadt.de/stakeholder/3",
@@ -1697,7 +1697,7 @@
               "https://process.stadt.de/location/1"
             ],
             "start": "2015-07-22T11:11:00+01:00",
-            "end (optional)": "",
+            "end (optional)": "2016-01-05",
             "participation": "open",
             "participants": [
               "https://process.stadt.de/stakeholder/2"
@@ -1786,7 +1786,7 @@
               "https://process.stadt.de/location/1"
             ],
             "start": "2015-09-16T11:11:00+01:00",
-            "end (optional)": "",
+            "end (optional)": "2015-11-09",
             "participation": "closed",
             "participants": [
               "https://process.stadt.de/stakeholder/2",
@@ -1830,7 +1830,7 @@
               "https://process.stadt.de/location/1"
             ],
             "start": "2015-10-08T11:11:00+01:00",
-            "end (optional)": "",
+            "end (optional)": "2016-02-09",
             "participation": "partial opened",
             "participants": [
               "https://process.stadt.de/stakeholder/2",
@@ -1875,7 +1875,7 @@
               "https://process.stadt.de/location/1"
             ],
             "start": "2015-11-03T11:11:00+01:00",
-            "end (optional)": "",
+            "end (optional)": "2015-12-29",
             "participation": "partial opened",
             "participants": [
               "https://process.stadt.de/stakeholder/1",
@@ -1917,7 +1917,7 @@
               "https://process.stadt.de/location/1"
             ],
             "start": "2015-11-17T11:11:00+01:00",
-            "end (optional)": "",
+            "end (optional)": "2016-01-18",
             "participation": "closed",
             "participants": [
               "https://process.stadt.de/stakeholder/2"
@@ -2231,7 +2231,7 @@
             }
           },
           {
-            "id": "https://process.stadt.de/location/3",
+            "id": "https://process.stadt.de/location/4",
             "address": "",
             "zip": "",
             "city": "Fachplanerbüro",
@@ -2242,7 +2242,7 @@
             }
           },
           {
-            "id": "https://process.stadt.de/location/3",
+            "id": "https://process.stadt.de/location/5",
             "address": "",
             "zip": "",
             "city": "Landratsamt",

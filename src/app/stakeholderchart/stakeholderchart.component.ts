@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import {ProcessServiceService} from "../process-service.service";
 import {forEach} from "@angular/router/src/utils/collection";
 
@@ -9,6 +9,11 @@ import {forEach} from "@angular/router/src/utils/collection";
 })
 export class StakeholderchartComponent implements OnInit {
 
+  overview;
+
+  open_sh:boolean = true;
+  open_p:boolean = false;
+
   result;
   stakeholder:number;
   showBar:boolean = false;
@@ -16,8 +21,12 @@ export class StakeholderchartComponent implements OnInit {
   count_participants:number;
 
   current_stakeholder;
-  current_processes = [];
+  current_sh_process = [];
+  current_p_process = [];
   current_proc;
+  current_loc;
+  current_initiator;
+  current_participants = [];
 
   type = 'bar';
   data = {
@@ -88,8 +97,6 @@ export class StakeholderchartComponent implements OnInit {
             }
           });
 
-          console.log(this.count_participants);
-
           /** stakeholder **/
           this.data.datasets[0].data.push(this.count);
           this.data.datasets[1].data.push(this.count_participants);
@@ -99,10 +106,18 @@ export class StakeholderchartComponent implements OnInit {
       });
   }
 
-  loadData(name:string){
+  resetData(){
     this.current_stakeholder = null;
     this.current_proc = null;
-    this.current_processes = [];
+    this.current_sh_process = [];
+    this.current_p_process = [];
+    this.current_loc = null;
+    this.current_initiator = null;
+    this.current_participants = [];
+  }
+
+  loadData(name:string){
+    this.resetData();
     this.result.process.stakeholder.forEach((sth)=>{
       if(sth.name == name){
         this.current_stakeholder = sth;
@@ -110,24 +125,40 @@ export class StakeholderchartComponent implements OnInit {
     });
     this.result.process.childs.forEach((child)=>{
       if(child.initiator == this.current_stakeholder.id){
-        this.current_processes.push(child);
+        this.current_sh_process.push(child);
+      }
+      if (child.participants.includes(this.current_stakeholder.id)) {
+        this.current_p_process.push(child);
       }
     });
-    console.log(this.current_stakeholder);
-    console.log(this.current_processes);
+    setTimeout(()=>{
+      this.overview = document.getElementById("overview");
+      this.overview.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+    }, 0);
   }
 
   selectProcess(proc){
+    this.current_initiator = undefined;
+    this.current_participants = [];
+    this.current_loc = undefined;
     this.current_proc = proc;
-  }
-
-  getLocation(id:string){
     this.result.process.locations.forEach((loc)=>{
-      if(loc.id = id){
-        return loc.city;
+      if(this.current_proc.location.includes(loc.id)){
+        this.current_loc =  loc.city;
       }else{
-        return null;
       }
+    });
+    this.result.process.stakeholder.forEach((sh)=>{
+      if(this.current_proc.initiator == sh.id){
+        this.current_initiator = sh.name;
+      }
+    });
+    this.current_proc.participants.forEach((el)=>{
+      this.result.process.stakeholder.forEach((sh)=>{
+        if(el == sh.id){
+          this.current_participants.push(sh);
+        }
+      });
     });
   }
 

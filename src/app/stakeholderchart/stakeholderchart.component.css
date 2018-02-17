@@ -1,7 +1,20 @@
 .panel-body {
-  padding: 0px;
+  padding: 0;
 }
 
 .desc{
   font-style: italic;
+}
+
+.list-group {
+  margin-bottom: 0;
+}
+
+.list-group-item{
+  border-radius: 0;
+  background-color: #eee;
+}
+
+a{
+  cursor: pointer;
 }
