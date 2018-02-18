@@ -1,0 +1,27 @@
+.popup-tooltip{
+  background-color: #204d74;
+  color: white;
+  padding: 5px;
+  cursor:pointer;
+}
+
+
+a{
+  cursor: pointer;
+}
+
+.proc-active{
+  background-color: rgb(244, 163, 65);
+}
+
+.panel-body {
+  padding: 0;
+}
+
+.proc-active > a{
+  color:black;
+}
+
+.nav-proc>li:hover>a{
+  background-color: rgb(244, 163, 65);
+}

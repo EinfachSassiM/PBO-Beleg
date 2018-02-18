@@ -1,3 +1,13 @@
 .btn-group{
   margin-bottom: 20px;
 }
+/*
+.btn-primary{
+  background-color: rgb(66, 134, 244);
+  border-color: darkblue;
+}
+*/
+.btn-primary.active{
+  background-color: #204d74;
+}
+

@@ -51,7 +51,7 @@ export class StakeholderchartComponent implements OnInit {
     events: ['click', 'mousemove'],
     title:{
       display: true,
-      text: 'Anzahl der Prozesse pro Stakeholder'
+      text: 'Anzahl der Prozesse je Stakeholder (Klick auf Balken zeigt Prozessübersicht)'
     },
     legend:{
       display: true,

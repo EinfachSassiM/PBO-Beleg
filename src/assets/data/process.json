@@ -2204,8 +2204,8 @@
             "city": "Mittelstadt",
             "room (optional)": "",
             "geoCoords (optional)": {
-              "lat": "",
-              "lng": ""
+              "lat": "13.737303",
+              "lng": "51.050164"
             }
           },
           {
@@ -2215,8 +2215,8 @@
             "city": "Diverse",
             "room (optional)": "",
             "geoCoords (optional)": {
-              "lat": "",
-              "lng": ""
+              "lat": "13.751482",
+              "lng": "51.054170"
             }
           },
           {
@@ -2226,8 +2226,8 @@
             "city": "Planerbüro",
             "room (optional)": "",
             "geoCoords (optional)": {
-              "lat": "",
-              "lng": ""
+              "lat": "13.742630",
+              "lng": "51.048076"
             }
           },
           {
@@ -2237,8 +2237,8 @@
             "city": "Fachplanerbüro",
             "room (optional)": "",
             "geoCoords (optional)": {
-              "lat": "",
-              "lng": ""
+              "lat": "13.721321",
+              "lng": "51.049219"
             }
           },
           {
@@ -2248,8 +2248,8 @@
             "city": "Landratsamt",
             "room (optional)": "",
             "geoCoords (optional)": {
-              "lat": "",
-              "lng": ""
+              "lat": "13.736346",
+              "lng": "51.045919"
             }
           }
         ],

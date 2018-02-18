@@ -3,7 +3,7 @@
 </div>
 <div id="overview">
   <div *ngIf="current_stakeholder">
-    <h3>Stakeholder: <b><i>{{current_stakeholder.name}}</i></b></h3>
+    <h2>Stakeholder: <b><i>{{current_stakeholder.name}}</i></b></h2>
     <!--<span><b>Typ:</b> {{current_stakeholder.type}}</span>-->
 
     <div class="panel panel-default">
@@ -45,12 +45,12 @@
           </div>
           <div class="col-sm-8">
             <div *ngIf="current_proc">
-              <h4>{{current_proc.name}}</h4>
+              <h3>{{current_proc.name}}</h3>
               <span class="desc">{{current_proc.description}}</span>
               <div>
                 <b>Stakeholder: </b>
                 <a (click)="loadData(current_initiator)">{{current_initiator}}</a><br>
-                <b>Teilnehmer: </b><br>
+                <b>Teilnehmer: </b><span *ngIf="current_participants.length == 0">Keine</span><br>
                 <ul *ngIf="current_participants">
                   <li *ngFor="let part of current_participants">
                     <a (click)="loadData(part.name)">{{part.name}}</a>

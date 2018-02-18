@@ -39,3 +39,8 @@ a{
 .nav-proc-p>li:hover>a{
 background-color: rgb(66, 134, 244);
 }
+
+.map{
+  margin-left: auto;
+  margin-right: auto;
+}

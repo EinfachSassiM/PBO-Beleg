@@ -1,0 +1,30 @@
+<div *ngIf="current_p">
+  <h3>{{current_p.name}}</h3>
+  <span class="desc">{{current_p.description}}</span>
+  <div>
+    <b>Stakeholder: </b>{{current_initiator}}<br>
+    <b>Teilnehmer: </b><span *ngIf="current_participants">Keine</span><br>
+    <ul *ngIf="current_participants">
+      <li *ngFor="let part of current_participants">
+        {{part.name}}
+      </li>
+    </ul>
+    <b>Location: </b>{{current_l.city}}<br>
+    <b>Zeitraum: </b>{{current_p.start | date:'longDate'}} - {{current_p["end (optional)"] | date:'longDate'}}<br>
+    <b>Typ: </b>
+    <span *ngIf="current_p.transformation.type == '<'" tooltip="(Input kleiner als Output)" placement="right">Erschaffung </span>
+    <span *ngIf="current_p.transformation.type == '>'" tooltip="(Input größer als Output)" placement="right">Entscheidung </span>
+    <span *ngIf="current_p.transformation.type == '='" tooltip="(Input und Output gleich groß)" placement="right">Anfrage </span>
+    <br>
+    <b>Entscheidung: </b>
+    <span *ngIf="current_p.transformation.decision == 'true'">
+                    <i class="fa fa-check-circle fa-fw"></i>Getroffen
+                  </span>
+    <span *ngIf="current_p.transformation.decision == 'false'">
+                    <i class="fa fa-times-circle fa-fw"></i>Nicht getroffen
+                  </span>
+    <br>
+    <b>Anhänge: </b> <embed src="../../assets/attachment/1%20Grundsatzbeschluss.pdf" width="250" height="187" type='application/pdf'>
+  </div>
+
+</div>

@@ -16,11 +16,14 @@ import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2
 import { FilterQueryPipe } from './filter-query.pipe';
 import { FilterTypePipe } from './filter-type.pipe';
 import { FilterStakeholderPipe } from './filter-stakeholder.pipe';
+import { OsmLocationComponent } from './osm-location/osm-location.component';
+import {AngularOpenlayersModule} from 'ngx-openlayers';
+import { ProcessDetailsComponent } from './process-details/process-details.component';
 
 const appRoutes: Routes = [
   { path: 'process', component: DatatableComponent },
   { path: 'stakeholder', component: StakeholderchartComponent },
-  { path: 'location', component: DatatableComponent},
+  { path: 'location', component: OsmLocationComponent},
   { path: '',
     redirectTo: 'process',
     pathMatch: 'full'
@@ -36,7 +39,9 @@ const appRoutes: Routes = [
     DatatableComponent,
     FilterQueryPipe,
     FilterTypePipe,
-    FilterStakeholderPipe
+    FilterStakeholderPipe,
+    OsmLocationComponent,
+    ProcessDetailsComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -50,6 +55,7 @@ const appRoutes: Routes = [
     TooltipModule.forRoot(),
     ChartModule,
     DataTableModule,
+    AngularOpenlayersModule,
     AngularMultiSelectModule
   ],
   providers: [ProcessServiceService],

@@ -1,0 +1,66 @@
+<div class="map">
+  <aol-map [width]="'80%'" [height]="'80%'">
+    <aol-view [zoom]="15">
+      <aol-coordinate [x]="13.737303" [y]="51.050164" [srid]="'EPSG:4326'"></aol-coordinate>
+    </aol-view>
+    <aol-layer-tile>
+      <aol-source-osm></aol-source-osm>
+    </aol-layer-tile>
+    <aol-layer-vector *ngIf="locations.length != 0" [opacity]="opacity">
+      <aol-source-vector>
+        <aol-feature *ngFor="let loc of locations; let i = index" [id]="i">
+          <aol-geometry-point>
+            <aol-coordinate [x]="loc.lat" [y]="loc.lng" [srid]="'EPSG:4326'"></aol-coordinate>
+          </aol-geometry-point>
+          <aol-style>
+            <aol-style-icon
+              [src]="'assets/images/marker.png'"
+              [anchor]="[0.5, 1]"
+              [anchorXUnits]="'fraction'" [anchorYUnits]="'fraction'"
+              [scale]="0.05"
+              [anchorOrigin]="'top-left'">
+            </aol-style-icon>
+          </aol-style>
+          <aol-overlay>
+            <aol-coordinate [x]="loc.lat" [y]="loc.lng" [srid]="'EPSG:4326'">
+            </aol-coordinate>
+            <aol-content>
+              <div class="popup-tooltip" (click)="showDetails(loc)">{{loc.city}}</div>
+            </aol-content>
+          </aol-overlay>
+        </aol-feature>
+      </aol-source-vector>
+    </aol-layer-vector>
+  </aol-map>
+</div>
+
+
+
+<div id="overview_osm">
+  <div *ngIf="currentLocation">
+    <h2>Ort: <b><i>{{currentLocation.city}} ( {{l_processes.length}} )</i></b></h2>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">Prozess-Übersicht</h4>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-sm-4">
+            <ul class="nav nav-pills nav-stacked nav-proc">
+              <li *ngFor="let proc of l_processes"
+                  (click)="selectProcess(proc)"
+                  [ngClass]="{'proc-active':current_proc == proc}">
+                <a>{{proc.name}}</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-8">
+            <div *ngIf="current_proc">
+              <app-process-details [result]="result" [current_p]="current_proc" [current_l]="currentLocation"></app-process-details>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
