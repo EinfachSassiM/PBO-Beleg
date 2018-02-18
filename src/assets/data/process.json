@@ -749,7 +749,7 @@
             "transformation": {
               "type": "=",
               "info": "",
-              "decision": "nein"
+              "decision": "false"
             },
             "results (optional)": [
               {

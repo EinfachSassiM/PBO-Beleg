@@ -3,8 +3,8 @@
 </div>
 <div id="overview">
   <div *ngIf="current_stakeholder">
-    <h3>Stakeholder: {{current_stakeholder.name}}</h3>
-    <span><b>Typ:</b> {{current_stakeholder.type}}</span>
+    <h3>Stakeholder: <b><i>{{current_stakeholder.name}}</i></b></h3>
+    <!--<span><b>Typ:</b> {{current_stakeholder.type}}</span>-->
 
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -55,7 +55,19 @@
                 </ul>
                 <b>Location: </b>{{current_loc}}<br>
                 <b>Zeitraum: </b>{{current_proc.start | date:'longDate'}} - {{current_proc["end (optional)"] | date:'longDate'}}<br>
-                <b>Ergebnis: </b><br>
+                <b>Typ: </b>
+                <span *ngIf="current_proc.transformation.type == '<'" tooltip="(Input kleiner als Output)" placement="right">Erschaffung </span>
+                <span *ngIf="current_proc.transformation.type == '>'" tooltip="(Input größer als Output)" placement="right">Entscheidung </span>
+                <span *ngIf="current_proc.transformation.type == '='" tooltip="(Input und Output gleich groß)" placement="right">Anfrage </span>
+                <br>
+                <b>Entscheidung: </b>
+                  <span *ngIf="current_proc.transformation.decision == 'true'">
+                    <i class="fa fa-check-circle fa-fw"></i>Getroffen
+                  </span>
+                  <span *ngIf="current_proc.transformation.decision == 'false'">
+                    <i class="fa fa-times-circle fa-fw"></i>Nicht getroffen
+                  </span>
+                <br>
                 <b>Anhänge: </b> <embed src="../../assets/attachment/1%20Grundsatzbeschluss.pdf" width="250" height="187" type='application/pdf'>
               </div>
             </div>

@@ -1,0 +1,26 @@
+.form-inline .form-group, .form-control{
+  width: 100% !important;
+}
+
+#process-name{
+  min-height: 44px;
+}
+
+.col-sm-4{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.col-sm-4:first-child{
+  padding-left: 15px;
+}
+
+.col-sm-4:last-child{
+  padding-right: 15px;
+}
+
+tr td:last-child { /* I don't think they are 0 based */
+  text-align: center;
+}
+
+

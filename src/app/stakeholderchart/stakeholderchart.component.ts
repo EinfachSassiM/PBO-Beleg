@@ -64,6 +64,7 @@ export class StakeholderchartComponent implements OnInit {
       }
     },
     //maintainAspectRatio: false,
+    autoSkip: false,
     xAxes: [{
       ticks: {
         stepSize: 1,

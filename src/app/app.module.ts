@@ -8,22 +8,27 @@ import { NetworkComponent } from './network/network.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { GanttchartComponent } from './ganttchart/ganttchart.component';
 import {GanttModule} from "gantt-ui-component";
-import {ButtonsModule} from "ngx-bootstrap";
+import {ButtonsModule, TooltipModule} from "ngx-bootstrap";
 import {FormsModule} from "@angular/forms";
 import { StakeholderchartComponent } from './stakeholderchart/stakeholderchart.component';
 import {Routes, RouterModule} from "@angular/router";
 import {ChartModule} from "angular2-chartjs";
-import { Ganttchart2Component } from './ganttchart2/ganttchart2.component';
+import { DatatableComponent } from './datatable/datatable.component';
+import {DataTableModule} from "angular2-datatable";
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2-multiselect-dropdown';
+import { FilterQuery } from './filter-query.pipe';
+import { FilterTypePipe } from './filter-type.pipe';
+import { FilterStakeholderPipe } from './filter-stakeholder.pipe';
 
 const appRoutes: Routes = [
-  { path: 'process', component: Ganttchart2Component },
+  { path: 'process', component: DatatableComponent },
   { path: 'stakeholder', component: StakeholderchartComponent },
-  { path: 'location', component: NetworkComponent},
+  { path: 'location', component: DatatableComponent},
   { path: '',
     redirectTo: 'process',
     pathMatch: 'full'
   },
-  { path: '**', component: Ganttchart2Component }
+  { path: '**', component: GanttchartComponent }
 ];
 
 @NgModule({
@@ -33,19 +38,25 @@ const appRoutes: Routes = [
     NavigationComponent,
     GanttchartComponent,
     StakeholderchartComponent,
-    Ganttchart2Component
+    DatatableComponent,
+    FilterQuery,
+    FilterTypePipe,
+    FilterStakeholderPipe
   ],
   imports: [
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      { enableTracing: false } // <-- debugging purposes only
     ),
     BrowserModule,
     FormsModule,
     HttpClientModule,
     ButtonsModule.forRoot(),
+    TooltipModule.forRoot(),
     GanttModule.forRoot(),
-    ChartModule
+    ChartModule,
+    DataTableModule,
+    AngularMultiSelectModule
   ],
   providers: [ProcessServiceService],
   bootstrap: [AppComponent]

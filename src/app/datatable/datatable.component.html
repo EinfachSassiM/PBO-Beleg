@@ -1,0 +1,70 @@
+<div class="well well-sm">
+  <h4>Filterung: </h4>
+  <div class="row">
+    <div class="col-sm-4">
+      <form class="form-inline">
+        <div class="form-group">
+          <label for="process-name">Name:</label>
+          <input type="text" class="form-control" id="process-name" placeholder="Name filtern" [(ngModel)]="filterQuery" name="filterPName"/>
+        </div>
+      </form>
+    </div>
+    <div class="col-sm-4">
+      <label for="sh-multiselect">Stakeholder:</label>
+      <angular2-multiselect [data]="sh_itemList"
+                            [(ngModel)]="sh_selectedItems"
+                            [settings]="sh_multi_settings"
+                            (onSelect)="onItemSelect($event)"
+                            (onDeSelect)="OnItemDeSelect($event)"
+                            (onSelectAll)="onSelectAll($event)"
+                            (onDeSelectAll)="onDeSelectAll($event)"
+                            *ngIf="show_shFilter"
+                            id="sh-multiselect">
+      </angular2-multiselect>
+    </div>
+    <div class="col-sm-4">
+      <label for="type-multiselect">Typ:</label>
+      <angular2-multiselect [data]="type_itemList"
+                            [(ngModel)]="type_selectedItems"
+                            [settings]="type_multi_settings"
+                            (onSelect)="onItemSelect($event)"
+                            (onDeSelect)="OnItemDeSelect($event)"
+                            (onSelectAll)="onSelectAll($event)"
+                            (onDeSelectAll)="onDeSelectAll($event)"
+                            id="type-multiselect">
+      </angular2-multiselect>
+    </div>
+  </div>
+</div>
+
+<table class="table table-striped" [mfData]="data" #mf="mfDataTable" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+  <thead>
+    <tr>
+      <th style="width: 35%">
+        <mfDefaultSorter by="name">Titel</mfDefaultSorter>
+      </th>
+      <th style="width: 20%"><mfDefaultSorter by="initiator">Stakeholder</mfDefaultSorter></th>
+      <th style="width: 15%"><mfDefaultSorter by="start">Start</mfDefaultSorter></th>
+      <th style="width: 15%"><mfDefaultSorter by="end (optional)">Ende</mfDefaultSorter></th>
+      <th style="width: 10%">Typ</th>
+      <th style="width: 5%">Entscheidung?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of (mf.data | dataFilter :filterQuery | filterType :type_selectedItems :currentDatetime | filterStakeholder :sh_selectedItems)">
+      <td>{{item.name}}</td>
+      <td>{{item.initiator}}</td>
+      <td>{{item.start| date:'longDate'}}</td>
+      <td>{{item["end (optional)"]| date:'longDate'}}</td>
+      <td>
+        <span *ngIf="item.transformation.type == '>'">Entscheidung</span>
+        <span *ngIf="item.transformation.type == '<'">Erschaffung</span>
+        <span *ngIf="item.transformation.type == '='">Anfrage</span>
+      </td>
+      <td>
+        <i *ngIf="item.transformation.decision == 'true'" class="fa fa-check-circle fa-2x"></i>
+        <i *ngIf="item.transformation.decision == 'false'" class="fa fa-times-circle fa-2x"></i>
+      </td>
+    </tr>
+  </tbody>
+</table>
