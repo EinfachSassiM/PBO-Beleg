@@ -18,3 +18,24 @@
 a{
   cursor: pointer;
 }
+
+.proc-active{
+  background-color: rgb(244, 163, 65);
+}
+
+.proc-p-active{
+  background-color: rgb(66, 134, 244);
+}
+
+.proc-p-active > a,
+.proc-active > a{
+  color:black;
+}
+
+.nav-proc>li:hover>a{
+  background-color: rgb(244, 163, 65);
+}
+
+.nav-proc-p>li:hover>a{
+background-color: rgb(66, 134, 244);
+}

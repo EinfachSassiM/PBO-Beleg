@@ -1,8 +1,8 @@
-import { FilterMultiSelectPipe } from './filter-query.pipe';
+import { FilterQueryPipe } from './filter-query.pipe';
 
-describe('FilterMultiSelectPipe', () => {
+describe('FilterQueryPipe', () => {
   it('create an instance', () => {
-    const pipe = new FilterMultiSelectPipe();
+    const pipe = new FilterQueryPipe();
     expect(pipe).toBeTruthy();
   });
 });

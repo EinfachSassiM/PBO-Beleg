@@ -19,10 +19,12 @@
                 Prozesse als Stakeholder
               </a>
               <div *ngIf="open_sh">
-                <ul *ngFor="let proc of current_sh_process"
-                    class="nav nav-pills nav-stacked"
-                   (click)="selectProcess(proc)">
-                  <li><a>{{proc.name}}</a></li>
+                <ul class="nav nav-pills nav-stacked nav-proc">
+                  <li *ngFor="let proc of current_sh_process"
+                      (click)="selectProcess(proc)"
+                      [ngClass]="{'proc-active':current_proc == proc}">
+                    <a>{{proc.name}}</a>
+                  </li>
                 </ul>
               </div>
               <a (click)="open_p = !open_p" class="list-group-item" data-toggle="collapse">
@@ -30,9 +32,10 @@
                 Prozesse als Teilnehmer
               </a>
               <div *ngIf="open_p">
-                <ul class="nav nav-pills nav-stacked">
+                <ul class="nav nav-pills nav-stacked nav-proc-p">
                   <li *ngFor="let proc_p of current_p_process"
-                      (click)="selectProcess(proc_p)">
+                      (click)="selectProcess(proc_p)"
+                      [ngClass]="{'proc-p-active':current_proc == proc_p}">
                     <a>{{proc_p.name}}</a>
                   </li>
                 </ul>
