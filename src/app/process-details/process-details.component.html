@@ -25,10 +25,10 @@
                     <i class="fa fa-times-circle fa-fw"></i>Nicht getroffen
                   </span>
     <br>
-    <b>Anhänge: </b>
+    <b>Anhänge: </b><span *ngIf="current_p['results (optional)'][0].name == 'Antrag'">keine</span>
     <ul *ngIf="current_p['results (optional)'][0].name != 'Antrag'">
       <li *ngFor="let attach of current_p['results (optional)']">
-        <a class="openPDF" (click)="openPDF(attach.description);">{{attach.name}}</a>
+        <a class="openPDF" (click)="openPDF(attach.description);">{{attach.name}} <i class="fa fa-external-link"></i></a>
       </li>
     </ul>
 

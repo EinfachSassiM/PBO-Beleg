@@ -2,13 +2,18 @@
 <div class="container">
   <!--<app-network></app-network>-->
   <div class="btn-group" btnRadioGroup [(ngModel)]="radioModel">
-    <label class="btn btn-primary" btnRadio="process" routerLink="process">Prozessübersicht</label>
-    <label class="btn btn-primary" btnRadio="stakeholder" routerLink="stakeholder">Stakeholder</label>
-    <label class="btn btn-primary" btnRadio="location" routerLink="location">Ort-Übersicht</label>
+    <label class="btn btn-primary" btnRadio="process" routerLink="./process">Prozessübersicht</label>
+    <label class="btn btn-primary" btnRadio="stakeholder" routerLink="./stakeholder">Stakeholder</label>
+    <label class="btn btn-primary" btnRadio="location" routerLink="./location">Ort-Übersicht</label>
   </div>
   <!--<app-ganttchart></app-ganttchart>-->
   <router-outlet></router-outlet>
 </div>
+<footer class="footer">
+  <div class="container" style="margin-top:auto; margin-bottom:auto;">
+    <i class="fa fa-copyright fa-fw"></i>Saskia Mohr
+  </div>
+</footer>
 
 
 

@@ -19,6 +19,7 @@ import { FilterStakeholderPipe } from './filter-stakeholder.pipe';
 import { OsmLocationComponent } from './osm-location/osm-location.component';
 import {AngularOpenlayersModule} from 'ngx-openlayers';
 import { ProcessDetailsComponent } from './process-details/process-details.component';
+import { LOCALE_ID } from '@angular/core';
 
 const appRoutes: Routes = [
   { path: 'process', component: DatatableComponent },
@@ -46,7 +47,7 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: false } // <-- debugging purposes only
+      { useHash: true } // <-- debugging purposes only
     ),
     BrowserModule,
     FormsModule,

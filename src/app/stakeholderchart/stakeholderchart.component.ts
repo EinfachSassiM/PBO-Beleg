@@ -11,14 +11,14 @@ export class StakeholderchartComponent implements OnInit {
 
   overview;
 
-  open_sh:boolean = true;
-  open_p:boolean = false;
+  open_sh: boolean = true;
+  open_p: boolean = false;
 
   result;
-  stakeholder:number;
-  showBar:boolean = false;
-  count:number;
-  count_participants:number;
+  stakeholder: number;
+  showBar: boolean = false;
+  count: number;
+  count_participants: number;
 
   current_stakeholder;
   current_sh_process = [];
@@ -49,32 +49,36 @@ export class StakeholderchartComponent implements OnInit {
     responsive: true,
     color: "blue",
     events: ['click', 'mousemove'],
-    title:{
+    title: {
       display: true,
       text: 'Anzahl der Prozesse je Stakeholder (Klick auf Balken zeigt Prozessdatenblatt)'
     },
-    legend:{
+    legend: {
       display: true,
       position: "top"
     },
-    onClick: (event,array)=>{
+    onClick: (event, array) => {
       //console.log(array[0]._model.label);
-      if(array[0]){
+      if (array[0]) {
         this.loadData(array[0]._view.label);
       }
     },
     //maintainAspectRatio: false,
-    autoSkip: false,
-    xAxes: [{
-      ticks: {
-        stepSize: 1,
-        min: 0,
-        autoSkip: false
-      }
-    }]
+    scales: {
+      autoSkip: false,
+      xAxes: [{
+        ticks: {
+          stepSize: 1,
+          min: 0,
+          autoSkip: false
+        }
+      }]
+    },
+
   };
 
-  constructor(private _processService:ProcessServiceService) { }
+  constructor(private _processService: ProcessServiceService) {
+  }
 
   ngOnInit() {
     this._processService.getProcessData()
@@ -107,7 +111,7 @@ export class StakeholderchartComponent implements OnInit {
       });
   }
 
-  resetData(){
+  resetData() {
     this.current_stakeholder = null;
     this.current_proc = null;
     this.current_sh_process = [];
@@ -117,54 +121,54 @@ export class StakeholderchartComponent implements OnInit {
     this.current_participants = [];
   }
 
-  loadData(name:string){
+  loadData(name: string) {
     this.resetData();
-    this.result.process.stakeholder.forEach((sth)=>{
-      if(sth.name == name){
+    this.result.process.stakeholder.forEach((sth) => {
+      if (sth.name == name) {
         this.current_stakeholder = sth;
       }
     });
-    this.result.process.childs.forEach((child)=>{
-      if(child.initiator == this.current_stakeholder.id){
+    this.result.process.childs.forEach((child) => {
+      if (child.initiator == this.current_stakeholder.id) {
         this.current_sh_process.push(child);
       }
       if (child.participants.includes(this.current_stakeholder.id)) {
         this.current_p_process.push(child);
       }
     });
-    setTimeout(()=>{
+    setTimeout(() => {
       this.overview = document.getElementById("overview");
       this.overview.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
     }, 0);
     this.selectProcess(this.current_sh_process[0]);
   }
 
-  selectProcess(proc){
+  selectProcess(proc) {
     this.current_initiator = undefined;
     this.current_participants = [];
     this.current_loc = undefined;
     this.current_proc = proc;
-    this.result.process.locations.forEach((loc)=>{
-      if(this.current_proc.location.includes(loc.id)){
-        this.current_loc =  loc.city;
-      }else{
+    this.result.process.locations.forEach((loc) => {
+      if (this.current_proc.location.includes(loc.id)) {
+        this.current_loc = loc.city;
+      } else {
       }
     });
-    this.result.process.stakeholder.forEach((sh)=>{
-      if(this.current_proc.initiator == sh.id){
+    this.result.process.stakeholder.forEach((sh) => {
+      if (this.current_proc.initiator == sh.id) {
         this.current_initiator = sh.name;
       }
     });
-    this.current_proc.participants.forEach((el)=>{
-      this.result.process.stakeholder.forEach((sh)=>{
-        if(el == sh.id){
+    this.current_proc.participants.forEach((el) => {
+      this.result.process.stakeholder.forEach((sh) => {
+        if (el == sh.id) {
           this.current_participants.push(sh);
         }
       });
     });
   }
 
-  openPDF(url:string){
+  openPDF(url: string) {
     window.open(url);
     return false;
   }
