@@ -58,6 +58,7 @@
                 </ul>
                 <b>Location: </b>{{current_loc}}<br>
                 <b>Zeitraum: </b>{{current_proc.start | date:'longDate'}} - {{current_proc["end (optional)"] | date:'longDate'}}<br>
+                <b>Status für Teilnahme: </b>{{current_proc.participation}}<br>
                 <b>Typ: </b>
                 <span *ngIf="current_proc.transformation.type == '<'" tooltip="(Input kleiner als Output)" placement="right">Erschaffung </span>
                 <span *ngIf="current_proc.transformation.type == '>'" tooltip="(Input größer als Output)" placement="right">Entscheidung </span>
@@ -71,7 +72,12 @@
                     <i class="fa fa-times-circle fa-fw"></i>Nicht getroffen
                   </span>
                 <br>
-                <b>Anhänge: </b> <embed src="../../assets/attachment/1%20Grundsatzbeschluss.pdf" width="250" height="187" type='application/pdf'>
+                <b>Anhänge: </b>
+                <ul *ngIf="current_proc['results (optional)'][0].name != 'Antrag'">
+                  <li *ngFor="let attach of current_proc['results (optional)']">
+                    <a class="openPDF" (click)="openPDF(attach.description);">{{attach.name}}</a>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>

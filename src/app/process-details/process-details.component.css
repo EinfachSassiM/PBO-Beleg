@@ -1,3 +1,7 @@
 .desc{
   font-style: italic;
 }
+
+.openPDF{
+  cursor: pointer;
+}

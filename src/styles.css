@@ -28,3 +28,8 @@
 .custom-class-example .pure-checkbox[_ngcontent-c3] input[type="checkbox"][_ngcontent-c3]:checked + label[_ngcontent-c3]:before {
   background: rgb(244, 163, 65) !important;
 }
+
+.map > aol-map > div{
+  margin-right: auto;
+  margin-left: auto;
+}

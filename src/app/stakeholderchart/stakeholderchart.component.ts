@@ -51,7 +51,7 @@ export class StakeholderchartComponent implements OnInit {
     events: ['click', 'mousemove'],
     title:{
       display: true,
-      text: 'Anzahl der Prozesse je Stakeholder (Klick auf Balken zeigt Prozessübersicht)'
+      text: 'Anzahl der Prozesse je Stakeholder (Klick auf Balken zeigt Prozessdatenblatt)'
     },
     legend:{
       display: true,
@@ -136,6 +136,7 @@ export class StakeholderchartComponent implements OnInit {
       this.overview = document.getElementById("overview");
       this.overview.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
     }, 0);
+    this.selectProcess(this.current_sh_process[0]);
   }
 
   selectProcess(proc){
@@ -161,6 +162,11 @@ export class StakeholderchartComponent implements OnInit {
         }
       });
     });
+  }
+
+  openPDF(url:string){
+    window.open(url);
+    return false;
   }
 
 }

@@ -25,3 +25,7 @@ a{
 .nav-proc>li:hover>a{
   background-color: rgb(244, 163, 65);
 }
+
+.nav-proc{
+  border-right: 1px solid lightgray;
+}

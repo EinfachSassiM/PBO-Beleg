@@ -1,11 +1,11 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, OnChanges} from '@angular/core';
 
 @Component({
   selector: 'app-process-details',
   templateUrl: './process-details.component.html',
   styleUrls: ['./process-details.component.css']
 })
-export class ProcessDetailsComponent implements OnInit {
+export class ProcessDetailsComponent implements OnInit, OnChanges {
 
   @Input() public current_p;
   @Input() public current_l;
@@ -16,8 +16,9 @@ export class ProcessDetailsComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-
+  getCurrentData(){
+    this.current_initiator = "";
+    this.current_participants = [];
     this.result.process.stakeholder.forEach((sh)=>{
       if(this.current_p.initiator == sh.id){
         this.current_initiator = sh.name;
@@ -30,7 +31,18 @@ export class ProcessDetailsComponent implements OnInit {
         }
       });
     });
+  }
 
+  ngOnInit() {
+  }
+
+  ngOnChanges(){
+    this.getCurrentData();
+  }
+
+  openPDF(url:string){
+    window.open(url);
+    return false;
   }
 
 }

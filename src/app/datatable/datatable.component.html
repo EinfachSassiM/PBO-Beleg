@@ -40,12 +40,13 @@
 <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
   <thead>
     <tr>
-      <th style="width: 35%">
+      <th style="width: 30%">
         <mfDefaultSorter by="name">Titel</mfDefaultSorter>
       </th>
-      <th style="width: 20%"><mfDefaultSorter by="initiator">Stakeholder</mfDefaultSorter></th>
+      <th style="width: 15%"><mfDefaultSorter by="initiator">Stakeholder</mfDefaultSorter></th>
       <th style="width: 15%"><mfDefaultSorter by="start">Start</mfDefaultSorter></th>
       <th style="width: 15%"><mfDefaultSorter by="end (optional)">Ende</mfDefaultSorter></th>
+      <th style="width: 10%"><mfDefaultSorter by="participation">Status</mfDefaultSorter></th>
       <th style="width: 10%">Typ</th>
       <th style="width: 5%">Entscheidung?</th>
     </tr>
@@ -56,6 +57,7 @@
       <td>{{item.initiator}}</td>
       <td>{{item.start| date:'longDate'}}</td>
       <td>{{item["end (optional)"]| date:'longDate'}}</td>
+      <td>{{item.participation}}</td>
       <td>
         <span *ngIf="item.transformation.type == '>'">Entscheidung</span>
         <span *ngIf="item.transformation.type == '<'">Erschaffung</span>

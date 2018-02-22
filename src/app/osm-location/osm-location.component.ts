@@ -61,6 +61,7 @@ export class OsmLocationComponent implements OnInit {
       this.overview = document.getElementById("overview_osm");
       this.overview.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
     }, 0);
+    this.current_proc = this.l_processes[0];
   }
 
   selectProcess(proc){

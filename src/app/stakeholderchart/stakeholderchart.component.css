@@ -40,7 +40,11 @@ a{
 background-color: rgb(66, 134, 244);
 }
 
-.map{
-  margin-left: auto;
-  margin-right: auto;
+.nav-proc, .nav-proc-p{
+  border-right: 1px solid lightgray;
 }
+
+.openPDF{
+  cursor: pointer;
+}
+
