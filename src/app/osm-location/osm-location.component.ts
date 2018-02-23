@@ -30,7 +30,6 @@ export class OsmLocationComponent implements OnInit {
         this.result.process.locations.forEach((loc)=>{
           this.locations.push({"id": loc.id,"city": loc.city, "lat": parseFloat(loc["geoCoords (optional)"].lat), "lng": parseFloat(loc["geoCoords (optional)"].lng)});
         });
-        console.log(this.locations);
       });
   }
 

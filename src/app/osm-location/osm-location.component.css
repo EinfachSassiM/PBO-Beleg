@@ -29,3 +29,7 @@ a{
 .nav-proc{
   border-right: 1px solid lightgray;
 }
+
+#overview_osm{
+  margin-top: 30px;
+}

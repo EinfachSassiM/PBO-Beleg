@@ -5,6 +5,7 @@
 
 .navbar-brand{
   color: white;
+  padding-left:0;
 }
 
 .container.navbar-header{

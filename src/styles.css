@@ -33,3 +33,8 @@
   margin-right: auto;
   margin-left: auto;
 }
+
+html,
+body{
+  height:100%;
+}

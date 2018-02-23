@@ -3,11 +3,11 @@
 </div>
 <div id="overview">
   <div *ngIf="current_stakeholder">
-    <h2>Stakeholder: <b><i>{{current_stakeholder.name}}</i></b></h2>
     <!--<span><b>Typ:</b> {{current_stakeholder.type}}</span>-->
 
     <div class="panel panel-default">
       <div class="panel-heading">
+        <h2><b><i>{{current_stakeholder.name}}</i></b></h2>
         <h4 class="panel-title">Prozess-Übersicht</h4>
       </div>
       <div class="panel-body">
@@ -15,7 +15,7 @@
           <div class="col-sm-4">
             <div class="list-group">
               <a  (click)="open_sh = !open_sh" class="list-group-item" data-toggle="collapse">
-                <span *ngIf="current_sh_process.length" class="badge">{{current_sh_process.length}}</span>
+                <span class="badge">{{current_sh_process.length}}</span>
                 Prozesse als Stakeholder
               </a>
               <div *ngIf="open_sh">
@@ -28,7 +28,7 @@
                 </ul>
               </div>
               <a (click)="open_p = !open_p" class="list-group-item" data-toggle="collapse">
-                <span *ngIf="current_p_process.length" class="badge">{{current_p_process.length}}</span>
+                <span class="badge">{{current_p_process.length}}</span>
                 Prozesse als Teilnehmer
               </a>
               <div *ngIf="open_p">
@@ -48,36 +48,67 @@
               <h3>{{current_proc.name}}</h3>
               <span class="desc">{{current_proc.description}}</span>
               <div>
-                <b>Stakeholder: </b>
-                <a (click)="loadData(current_initiator)">{{current_initiator}}</a><br>
-                <b>Teilnehmer: </b><span *ngIf="current_participants.length == 0">Keine</span><br>
-                <ul *ngIf="current_participants">
-                  <li *ngFor="let part of current_participants">
-                    <a (click)="loadData(part.name)">{{part.name}}</a>
-                  </li>
-                </ul>
-                <b>Location: </b>{{current_loc}}<br>
-                <b>Zeitraum: </b>{{current_proc.start | date:'longDate'}} - {{current_proc["end (optional)"] | date:'longDate'}}<br>
-                <b>Status für Teilnahme: </b>{{current_proc.participation}}<br>
-                <b>Typ: </b>
-                <span *ngIf="current_proc.transformation.type == '<'" tooltip="(Input kleiner als Output)" placement="right">Erschaffung </span>
-                <span *ngIf="current_proc.transformation.type == '>'" tooltip="(Input größer als Output)" placement="right">Entscheidung </span>
-                <span *ngIf="current_proc.transformation.type == '='" tooltip="(Input und Output gleich groß)" placement="right">Anfrage </span>
-                <br>
-                <b>Entscheidung: </b>
-                  <span *ngIf="current_proc.transformation.decision == 'true'">
-                    <i class="fa fa-check-circle fa-fw"></i>Getroffen
-                  </span>
-                  <span *ngIf="current_proc.transformation.decision == 'false'">
-                    <i class="fa fa-times-circle fa-fw"></i>Nicht getroffen
-                  </span>
-                <br>
-                <b>Anhänge: </b><span *ngIf="current_proc['results (optional)'][0].name == 'Antrag'">keine</span>
-                <ul *ngIf="current_proc['results (optional)'][0].name != 'Antrag'">
-                  <li *ngFor="let attach of current_proc['results (optional)']">
-                    <a class="openPDF" (click)="openPDF(attach.description);">{{attach.name}} <i class="fa fa-external-link"></i></a>
-                  </li>
-                </ul>
+
+
+                <table class="table">
+                  <tr>
+                    <td><b>Stakeholder: </b></td>
+                    <td><a (click)="loadData(current_initiator)">{{current_initiator}}</a></td>
+                  </tr>
+                  <tr>
+                    <td><b>Teilnehmer: </b></td>
+                    <td>
+                      <span *ngIf="current_participants.length == 0">Keine</span>
+                      <ul *ngIf="current_participants">
+                        <li *ngFor="let part of current_participants">
+                          <a (click)="loadData(part.name)">{{part.name}}</a>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><b>Location: </b></td>
+                    <td>{{current_loc}}</td>
+                  </tr>
+                  <tr>
+                    <td><b>Zeitraum: </b></td>
+                    <td>{{current_proc.start | date:'longDate'}} - {{current_proc["end (optional)"] | date:'longDate'}}</td>
+                  </tr>
+                  <tr>
+                    <td><b>Status für Teilnahme: </b></td>
+                    <td>{{current_proc.participation}}</td>
+                  </tr>
+                  <tr>
+                    <td><b>Typ: </b></td>
+                    <td>
+                      <span *ngIf="current_proc.transformation.type == '<'" tooltip="(Input kleiner als Output)" placement="right">Erschaffung </span>
+                      <span *ngIf="current_proc.transformation.type == '>'" tooltip="(Input größer als Output)" placement="right">Entscheidung </span>
+                      <span *ngIf="current_proc.transformation.type == '='" tooltip="(Input und Output gleich groß)" placement="right">Anfrage </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><b>Entscheidung: </b></td>
+                    <td>
+                      <span *ngIf="current_proc.transformation.decision == 'true'">
+                        <i class="fa fa-check-circle fa-fw"></i>Getroffen
+                      </span>
+                          <span *ngIf="current_proc.transformation.decision == 'false'">
+                        <i class="fa fa-times-circle fa-fw"></i>Nicht getroffen
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><b>Anhänge: </b></td>
+                    <td>
+                      <span *ngIf="current_proc['results (optional)'][0].name == 'Antrag'">keine</span>
+                      <ul *ngIf="current_proc['results (optional)'][0].name != 'Antrag'">
+                        <li *ngFor="let attach of current_proc['results (optional)']">
+                          <a class="openPDF" (click)="openPDF(attach.description);">{{attach.name}} <i class="fa fa-external-link"></i></a>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </table>
               </div>
             </div>
           </div>

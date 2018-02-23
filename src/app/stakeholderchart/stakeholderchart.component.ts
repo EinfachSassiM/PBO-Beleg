@@ -136,6 +136,12 @@ export class StakeholderchartComponent implements OnInit {
         this.current_p_process.push(child);
       }
     });
+
+    if(this.current_sh_process.length == 0){
+      this.open_sh = false;
+      this.open_p = true;
+    }
+
     setTimeout(() => {
       this.overview = document.getElementById("overview");
       this.overview.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});

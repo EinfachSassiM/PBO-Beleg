@@ -1,37 +1,64 @@
 <div *ngIf="current_p">
   <h3>{{current_p.name}}</h3>
   <span class="desc">{{current_p.description}}</span>
-  <div>
-    <b>Stakeholder: </b>{{current_initiator}}<br>
-    <b>Teilnehmer: </b><span *ngIf="current_participants.length == 0">Keine</span><br>
-    <ul *ngIf="current_participants">
-      <li *ngFor="let part of current_participants">
-        {{part.name}}
-      </li>
-    </ul>
-    <b>Location: </b>{{current_l.city}}<br>
-    <b>Zeitraum: </b>{{current_p.start | date:'longDate'}} - {{current_p["end (optional)"] | date:'longDate'}}<br>
-    <b>Status für Teilnahme: </b>{{current_p.participation}}<br>
-    <b>Typ: </b>
-    <span *ngIf="current_p.transformation.type == '<'" tooltip="(Input kleiner als Output)" placement="right">Erschaffung </span>
-    <span *ngIf="current_p.transformation.type == '>'" tooltip="(Input größer als Output)" placement="right">Entscheidung </span>
-    <span *ngIf="current_p.transformation.type == '='" tooltip="(Input und Output gleich groß)" placement="right">Anfrage </span>
-    <br>
-    <b>Entscheidung: </b>
-    <span *ngIf="current_p.transformation.decision == 'true'">
-                    <i class="fa fa-check-circle fa-fw"></i>Getroffen
-                  </span>
-    <span *ngIf="current_p.transformation.decision == 'false'">
-                    <i class="fa fa-times-circle fa-fw"></i>Nicht getroffen
-                  </span>
-    <br>
-    <b>Anhänge: </b><span *ngIf="current_p['results (optional)'][0].name == 'Antrag'">keine</span>
-    <ul *ngIf="current_p['results (optional)'][0].name != 'Antrag'">
-      <li *ngFor="let attach of current_p['results (optional)']">
-        <a class="openPDF" (click)="openPDF(attach.description);">{{attach.name}} <i class="fa fa-external-link"></i></a>
-      </li>
-    </ul>
-
-  </div>
+  <table class="table">
+    <tr>
+      <td><b>Stakeholder: </b></td>
+      <td>{{current_initiator}}</td>
+    </tr>
+    <tr>
+      <td><b>Teilnehmer: </b></td>
+      <td>
+        <span *ngIf="current_participants.length == 0">Keine</span>
+        <ul *ngIf="current_participants">
+          <li *ngFor="let part of current_participants">
+            {{part.name}}
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><b>Location: </b></td>
+      <td>{{current_l.city}}</td>
+    </tr>
+    <tr>
+      <td><b>Zeitraum: </b></td>
+      <td>{{current_p.start | date:'longDate'}} - {{current_p["end (optional)"] | date:'longDate'}}</td>
+    </tr>
+    <tr>
+      <td><b>Status für Teilnahme: </b></td>
+      <td>{{current_p.participation}}</td>
+    </tr>
+    <tr>
+      <td><b>Typ: </b></td>
+      <td>
+        <span *ngIf="current_p.transformation.type == '<'" tooltip="(Input kleiner als Output)" placement="right">Erschaffung </span>
+        <span *ngIf="current_p.transformation.type == '>'" tooltip="(Input größer als Output)" placement="right">Entscheidung </span>
+        <span *ngIf="current_p.transformation.type == '='" tooltip="(Input und Output gleich groß)" placement="right">Anfrage </span>
+      </td>
+    </tr>
+    <tr>
+      <td><b>Entscheidung: </b></td>
+      <td>
+        <span *ngIf="current_p.transformation.decision == 'true'">
+          <i class="fa fa-check-circle fa-fw"></i>Getroffen
+        </span>
+        <span *ngIf="current_p.transformation.decision == 'false'">
+          <i class="fa fa-times-circle fa-fw"></i>Nicht getroffen
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td><b>Anhänge: </b></td>
+      <td>
+        <span *ngIf="current_p['results (optional)'][0].name == 'Antrag'">keine</span>
+        <ul *ngIf="current_p['results (optional)'][0].name != 'Antrag'">
+          <li *ngFor="let attach of current_p['results (optional)']">
+            <a class="openPDF" (click)="openPDF(attach.description);">{{attach.name}} <i class="fa fa-external-link"></i></a>
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </table>
 
 </div>
