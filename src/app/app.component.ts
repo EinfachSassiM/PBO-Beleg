@@ -18,4 +18,8 @@ export class AppComponent{
     }
   }
 
+  createPDF(){
+    window.print();
+  }
+
 }

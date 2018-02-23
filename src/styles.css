@@ -38,3 +38,23 @@ html,
 body{
   height:100%;
 }
+
+@media screen {
+  .do-print{
+    display: none;
+  }
+}
+
+@media print {
+  .do-not-print{
+    display: none;
+  }
+
+  .do-print{
+    display: block;
+  }
+
+  .add-padding-print{
+    padding: 0 50px;
+  }
+}

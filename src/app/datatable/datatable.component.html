@@ -1,6 +1,6 @@
-<div class="well well-sm">
+<div class="well well-sm do-not-print">
   <h4>Filterung: </h4>
-  <div class="row">
+  <div class="row do-not-print">
     <div class="col-sm-4">
       <form class="form-inline">
         <div class="form-group">
@@ -36,6 +36,8 @@
     </div>
   </div>
 </div>
+
+<h1 class="process-overview do-print">Prozessübersicht</h1>
 
 <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
   <thead>

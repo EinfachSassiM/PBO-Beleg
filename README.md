@@ -25,10 +25,14 @@ Diese Single-Page-Application (SPA) stellt vorgegebene Prozessdaten visuell dar,
 
 - *Ansicht 3*: **Karte** mit den 5 Orten. Bei Klick auf den Namen eines Ortes erscheint ebenfalls darunter eine Auflistung über alle Prozesse an diesem Ort. Durch das Anklicken eines Prozesses kann man genauso das Datenblatt öffnen. 
 
+
+Durch Klicken des Buttons *Drucken* kann das wichtigste der aktuellen Seite gedruckt oder als PDF gespeichert werden.
+
 ### Änderungen an der process.json          
 Vorraussetzung war, dass die Keys der JSON-Datei nicht verändert werden dürfen, damit man die Datei jederzeit austauschen kann. Jedoch wurden einige Werte angepasst.
 - Jeder Prozess hat jetzt ein Enddatum. Dies wurde hinzugefügt, da zuerst angedacht war ein Gantt-Chart zu erstellen, jedoch wurde die Idee fallen gelassen, da die Visualisierung nicht zufriedenstellend war.
 - Die PDFs aus dem Anhang-Ordner wurden einigen Prozessen zugeordnet. Da nicht ganz erkenntlich war, welche Datei zu welchen Prozessen gehört, wurde dies versucht anhand der Namen frei zuzuordnen. Um die Zuordnung zu erkennen wurde in das Array `results (optional)` ein Objekt pro zugehörigem PDF hinzugefügt und in die `description`der jeweilige Pfad zum PDF vermerkt.
+- Die Werte zum Key `participation` wurden bzgl. der Anpassung an den Rest der Seite ins Deutsche übersetzt.
 
 ## Technologie / Bibliotheken
 
