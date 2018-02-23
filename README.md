@@ -1,4 +1,4 @@
-# PPO-Beleg
+# PBO-Beleg
 Ein Beleg von Saskia Mohr im Modul "Programmierung von Benutzeroberflächen".
 ## Beschreibung
 Diese Single-Page-Application (SPA) stellt vorgegebene Prozessdaten visuell dar, um komplexe Prozesse zu verstehen und gezielt Informationen zu erhalten. Hierfür werden nur einige Daten der Prozesse verwendet. Dafür werden 3 verschiedene Ansichten zur Verfügung gestellt:
